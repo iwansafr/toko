@@ -30,6 +30,7 @@ $form->addInput('user_id','dropdown');
 $form->setLabel('user_id','user');
 $form->tableOptions('user_id','user','id','username');
 $form->setAttribute('user_id','disabled');
+$form->setUrl('admin/store/clear_list');
 
 
 // $form->setEditLink(base_url().'admin/store/edit/','id');

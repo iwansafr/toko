@@ -21,6 +21,11 @@ class Staff extends CI_Controller
 		$this->load->view('index');
 	}
 
+	public function clear_list()
+	{
+		$this->load->view('staff/list');
+	}
+
 	public function edit($id = 0)
 	{
 		$id = @intval($id);

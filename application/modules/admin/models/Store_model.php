@@ -31,6 +31,11 @@ class Store_model extends CI_Model
 		if(!empty($user))
 		{
 			$store = $this->db->get_where('store',['user_id'=>$user['id']])->row_array();
+			if(empty($store))
+			{
+				$store_id = @$this->db->get_where('store_staff',['user_id'=>$user['id']])->row_array()['id'];
+				$store = $this->db->get_where('store',['id'=>$store_id])->row_array();
+			}
 		}
 		return $store;
 	}

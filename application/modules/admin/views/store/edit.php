@@ -5,6 +5,10 @@ $form = new zea();
 $form->setTable('store');
 $form->init('edit');
 $form->setId($id);
+if(!is_root())
+{
+	$form->setId($this->store_model->get_store_id());
+}
 
 $form->addInput('title','text');
 $form->addInput('description','textarea');

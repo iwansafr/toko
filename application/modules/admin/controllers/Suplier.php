@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Store extends CI_Controller
+class Suplier extends CI_Controller
 {
 	public function __construct()
 	{
@@ -9,6 +9,7 @@ class Store extends CI_Controller
 		$this->load->model('esg_model');
 		$this->load->model('admin_model');
 		$this->load->model('admin_menu_model');
+		$this->load->model('suplier_model');
 		$this->load->model('store_model');
 		$this->load->library('esg');
 		$this->load->library('ZEA/zea');
@@ -22,7 +23,7 @@ class Store extends CI_Controller
 
 	public function clear_list()
 	{
-		$this->load->view('store/list');
+		$this->load->view('suplier/index');
 	}
 
 	public function edit($id = 0)
@@ -33,7 +34,7 @@ class Store extends CI_Controller
 
 	public function detail($id = 0)
 	{
-		$this->load->view('index',['data'=>$this->store_model->detail($id)]);
+		$this->load->view('index',['data'=>$this->suplier_model->detail($id)]);
 	}
 
 }
