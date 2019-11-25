@@ -32,6 +32,7 @@ $template = $this->esg->get_esg('templates')['admin_template'];
 <link rel="stylesheet" href="<?php echo base_url('templates/'.$template); ?>/assets/summernote/summernote.css">
 <script src="<?php echo base_url().'templates/AdminLTE/assets/ckeditor/'; ?>ckeditor.js"></script>
 <link rel="stylesheet" href="<?php echo base_url('templates/'.$template); ?>/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
 <?php
 echo $this->esg->extra_css();
 ?>
