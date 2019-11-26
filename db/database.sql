@@ -1,4 +1,6 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -20,49 +22,49 @@ CREATE TABLE `admin_menu` (
   `updated` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `admin_menu` (`id`, `par_id`, `user_role_ids`, `title`, `icon`, `link`, `sort_order`, `created`, `updated`) VALUES
-(1, 0, ',1,2,3,4,', 'Dashboard', 'fa fa-tachometer-alt', '/', 1, '2019-03-30 03:05:59', '2019-11-25 15:27:51'),
-(2, 0, ',1,', 'Content', 'fa fa-file-alt', '/content', 10, '2019-03-30 03:24:19', '2019-11-25 06:09:38'),
-(3, 2, ',1,2,3,', 'Category', 'fa fa-list', '/content/category', 21, '2019-03-30 03:26:22', '2019-04-01 05:48:07'),
-(4, 2, ',1,2,3,', 'Add Content', 'fa fa-pencil-alt', '/content/edit', 22, '2019-03-30 03:35:27', '2019-04-01 05:48:07'),
-(5, 2, ',1,2,3,', 'Content List', 'fa fa-list', '/content/list', 23, '2019-03-30 03:35:44', '2019-04-01 05:48:07'),
-(6, 2, ',1,2,3,', 'Tag', 'fa fa-list', '/content/tag', 24, '2019-03-30 03:36:06', '2019-04-01 05:48:07'),
-(7, 0, ',1,', 'Gallery', 'fa fa-images', '/gallery', 11, '2019-03-31 22:53:29', '2019-11-25 06:09:38'),
-(8, 7, ',1,2,3,', 'Images', 'fa fa-image', '/gallery', 31, '2019-03-31 22:53:57', '2019-04-01 06:01:57'),
-(9, 0, ',1,', 'User', 'fa fa-user', '/user', 12, '2019-03-31 22:54:25', '2019-11-25 06:09:38'),
-(10, 9, ',1,2,', 'User List', 'fa fa-dot-circle', '/user/list', 41, '2019-03-31 22:55:32', '2019-04-01 06:02:10'),
-(11, 9, ',1,2,', 'User Edit', 'fa fa-dot-circle', '/user/edit', 42, '2019-03-31 22:58:48', '2019-04-01 06:02:10'),
-(12, 9, ',1,', 'User Role', 'fa fa-dot-circle', '/user/role', 43, '2019-03-31 22:59:13', '2019-04-01 06:02:10'),
-(13, 0, ',1,', 'Menu', 'fa fa-list', '/menu', 13, '2019-03-31 22:59:33', '2019-11-25 06:09:38'),
-(14, 13, ',1,2,', 'Add Menu', 'fa fa-pencil-alt', '/menu/edit', 51, '2019-03-31 22:59:58', '2019-04-01 06:02:26'),
-(15, 13, ',1,2,', 'Menu List', 'fa fa-pencil-alt', '/menu/list', 52, '2019-03-31 23:00:18', '2019-04-01 06:02:26'),
-(16, 13, ',1,2,', 'Menu Position', 'fa fa-list', '/menu/position', 53, '2019-03-31 23:00:37', '2019-04-01 06:02:26'),
-(17, 0, ',1,', 'Admin Menu', 'fa fa-list', '/admin_menu', 14, '2019-03-31 23:01:10', '2019-11-25 06:09:38'),
-(18, 17, ',1,', 'Add Menu', 'fa fa-pencil-alt', '/admin_menu/edit', 61, '2019-04-01 05:45:00', '2019-04-01 06:02:42'),
-(19, 17, ',1,', 'Menu List', 'fa fa-list', '/admin_menu/list', 62, '2019-04-01 05:45:20', '2019-04-01 06:02:42'),
-(20, 17, ',1,', 'Menu Parent', 'fa fa-list', '/admin_menu/list?id=0', 63, '2019-04-01 05:46:00', '2019-04-01 06:02:42'),
-(21, 0, ',1,', 'Data', 'fa fa-database', '/visitor', 15, '2019-04-01 05:46:34', '2019-11-25 06:09:38'),
-(22, 21, ',1,2,', 'Visitor', 'fa fa-chart-bar', '/visitor', 72, '2019-04-01 05:46:56', '2019-04-22 06:36:42'),
-(23, 0, ',1,', 'Configuration', 'fa fa-cog', '/config', 16, '2019-04-01 06:03:37', '2019-11-25 06:09:38'),
-(24, 23, ',1,2,', 'Logo', 'fa fa-cog', '/config/logo', 81, '2019-04-01 06:04:28', '2019-04-01 06:08:52'),
-(25, 23, ',1,2,', 'Site', 'fa fa-cog', '/config/site', 82, '2019-04-01 06:04:41', '2019-04-01 06:08:52'),
-(26, 23, ',1,2,', 'Templates', 'fa fa-cog', '/config/templates', 83, '2019-04-01 06:04:57', '2019-04-01 06:08:52'),
-(27, 23, ',1,2,', 'Contact', 'fa fa-cog', '/config/contact', 84, '2019-04-01 06:05:14', '2019-04-01 06:08:52'),
-(28, 23, ',1,2,', 'Style', 'fa fa-cog', '/config/style', 86, '2019-04-01 06:06:52', '2019-04-06 01:38:22'),
-(29, 23, ',1,2,', 'Script', 'fa fa-cog', '/config/script', 87, '2019-04-01 06:07:29', '2019-04-06 01:38:22'),
-(30, 21, ',1,2,', 'Backup', 'fa fa-download', '/backup', 73, '2019-04-01 06:08:04', '2019-04-22 06:36:42'),
-(31, 21, ',1,2,', 'Restore', 'fa fa-upload', '/restore', 74, '2019-04-01 06:08:15', '2019-04-22 06:36:42'),
-(32, 21, ',1,2,', 'Delete Cache', 'fa fa-trash', '/config/delete_cache', 75, '2019-04-04 00:08:10', '2019-04-22 06:36:42'),
-(33, 21, ',1,2,', 'Invoice', 'fa fa-money', '/invoice', 71, '2019-04-05 23:07:23', '2019-04-22 06:36:42'),
-(34, 23, ',1,2,', 'Bank Account', 'fa fa-user', '/config/bank_account', 85, '2019-04-06 01:37:09', '2019-04-06 01:38:22'),
-(35, 23, ',1,', 'Dashboard', 'fa fa-chart-bar', '/config/dashboard', 88, '2019-04-19 18:37:39', '2019-04-19 18:40:30'),
-(37, 21, ',1,', 'Subscribers', 'fa fa-user', '/subscriber', 1, '2019-04-22 06:37:13', '2019-04-22 06:37:13'),
-(38, 0, ',1,2,3,4,', 'Product', 'fa fa-tags', '/product', 3, '2019-11-25 03:12:10', '2019-11-25 15:27:15'),
-(39, 38, ',1,2,3,4,', 'Category', 'fa fa-tag', '/product/category', 1, '2019-11-25 03:13:36', '2019-11-25 15:27:38'),
-(40, 38, ',1,2,3,4,', 'Product', 'fa fa-tags', '/product', 1, '2019-11-25 03:14:01', '2019-11-25 15:27:40'),
-(41, 0, ',1,2,3,', 'Store', 'fa fa-store', '/store', 2, '2019-11-25 03:18:14', '2019-11-25 06:09:38'),
-(42, 0, ',1,2,', 'Staff', 'fa fa-user', '/staff', 4, '2019-11-25 06:08:57', '2019-11-25 06:09:38'),
-(43, 0, ',1,2,3,4,', 'Suplier', 'fa fa-handshake', '/suplier', 5, '2019-11-25 15:31:54', '2019-11-25 15:32:08');
+INSERT INTO `admin_menu` (`id`, `par_id`, `user_role_ids`, `title`, `icon`, `link`, `sort_order`, `created`) VALUES
+(1, 0, ',1,2,3,4,', 'Dashboard', 'fa fa-tachometer-alt', '/', 1, '2019-03-30 03:05:59'),
+(2, 0, ',1,', 'Content', 'fa fa-file-alt', '/content', 10, '2019-03-30 03:24:19'),
+(3, 2, ',1,2,3,', 'Category', 'fa fa-list', '/content/category', 21, '2019-03-30 03:26:22'),
+(4, 2, ',1,2,3,', 'Add Content', 'fa fa-pencil-alt', '/content/edit', 22, '2019-03-30 03:35:27'),
+(5, 2, ',1,2,3,', 'Content List', 'fa fa-list', '/content/list', 23, '2019-03-30 03:35:44'),
+(6, 2, ',1,2,3,', 'Tag', 'fa fa-list', '/content/tag', 24, '2019-03-30 03:36:06'),
+(7, 0, ',1,', 'Gallery', 'fa fa-images', '/gallery', 11, '2019-03-31 22:53:29'),
+(8, 7, ',1,2,3,', 'Images', 'fa fa-image', '/gallery', 31, '2019-03-31 22:53:57'),
+(9, 0, ',1,', 'User', 'fa fa-user', '/user', 12, '2019-03-31 22:54:25'),
+(10, 9, ',1,2,', 'User List', 'fa fa-dot-circle', '/user/list', 41, '2019-03-31 22:55:32'),
+(11, 9, ',1,2,', 'User Edit', 'fa fa-dot-circle', '/user/edit', 42, '2019-03-31 22:58:48'),
+(12, 9, ',1,', 'User Role', 'fa fa-dot-circle', '/user/role', 43, '2019-03-31 22:59:13'),
+(13, 0, ',1,', 'Menu', 'fa fa-list', '/menu', 13, '2019-03-31 22:59:33'),
+(14, 13, ',1,2,', 'Add Menu', 'fa fa-pencil-alt', '/menu/edit', 51, '2019-03-31 22:59:58'),
+(15, 13, ',1,2,', 'Menu List', 'fa fa-pencil-alt', '/menu/list', 52, '2019-03-31 23:00:18'),
+(16, 13, ',1,2,', 'Menu Position', 'fa fa-list', '/menu/position', 53, '2019-03-31 23:00:37'),
+(17, 0, ',1,', 'Admin Menu', 'fa fa-list', '/admin_menu', 14, '2019-03-31 23:01:10'),
+(18, 17, ',1,', 'Add Menu', 'fa fa-pencil-alt', '/admin_menu/edit', 61, '2019-04-01 05:45:00'),
+(19, 17, ',1,', 'Menu List', 'fa fa-list', '/admin_menu/list', 62, '2019-04-01 05:45:20'),
+(20, 17, ',1,', 'Menu Parent', 'fa fa-list', '/admin_menu/list?id=0', 63, '2019-04-01 05:46:00'),
+(21, 0, ',1,', 'Data', 'fa fa-database', '/visitor', 15, '2019-04-01 05:46:34'),
+(22, 21, ',1,2,', 'Visitor', 'fa fa-chart-bar', '/visitor', 72, '2019-04-01 05:46:56'),
+(23, 0, ',1,', 'Configuration', 'fa fa-cog', '/config', 16, '2019-04-01 06:03:37'),
+(24, 23, ',1,2,', 'Logo', 'fa fa-cog', '/config/logo', 81, '2019-04-01 06:04:28'),
+(25, 23, ',1,2,', 'Site', 'fa fa-cog', '/config/site', 82, '2019-04-01 06:04:41'),
+(26, 23, ',1,2,', 'Templates', 'fa fa-cog', '/config/templates', 83, '2019-04-01 06:04:57'),
+(27, 23, ',1,2,', 'Contact', 'fa fa-cog', '/config/contact', 84, '2019-04-01 06:05:14'),
+(28, 23, ',1,2,', 'Style', 'fa fa-cog', '/config/style', 86, '2019-04-01 06:06:52'),
+(29, 23, ',1,2,', 'Script', 'fa fa-cog', '/config/script', 87, '2019-04-01 06:07:29'),
+(30, 21, ',1,2,', 'Backup', 'fa fa-download', '/backup', 73, '2019-04-01 06:08:04'),
+(31, 21, ',1,2,', 'Restore', 'fa fa-upload', '/restore', 74, '2019-04-01 06:08:15'),
+(32, 21, ',1,2,', 'Delete Cache', 'fa fa-trash', '/config/delete_cache', 75, '2019-04-04 00:08:10'),
+(33, 21, ',1,2,', 'Invoice', 'fa fa-money', '/invoice', 71, '2019-04-05 23:07:23'),
+(34, 23, ',1,2,', 'Bank Account', 'fa fa-user', '/config/bank_account', 85, '2019-04-06 01:37:09'),
+(35, 23, ',1,', 'Dashboard', 'fa fa-chart-bar', '/config/dashboard', 88, '2019-04-19 18:37:39'),
+(37, 21, ',1,', 'Subscribers', 'fa fa-user', '/subscriber', 1, '2019-04-22 06:37:13'),
+(38, 0, ',1,2,3,4,', 'Product', 'fa fa-tags', '/product', 3, '2019-11-25 03:12:10'),
+(39, 38, ',1,2,3,4,', 'Category', 'fa fa-tag', '/product/category', 1, '2019-11-25 03:13:36'),
+(40, 38, ',1,2,3,4,', 'Product', 'fa fa-tags', '/product', 1, '2019-11-25 03:14:01'),
+(41, 0, ',1,2,3,', 'Store', 'fa fa-store', '/store', 2, '2019-11-25 03:18:14'),
+(42, 0, ',1,2,', 'Staff', 'fa fa-user', '/staff', 4, '2019-11-25 06:08:57'),
+(43, 0, ',1,2,3,4,', 'Suplier', 'fa fa-handshake', '/suplier', 5, '2019-11-25 15:31:54');
 
 DROP TABLE IF EXISTS `bank_account`;
 CREATE TABLE `bank_account` (
@@ -75,9 +77,9 @@ CREATE TABLE `bank_account` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `bank_account` (`id`, `bank_name`, `person_name`, `icon`, `bank_number`, `created`, `updated`) VALUES
-(1, 'BCA', 'Iwan Safrudin', 'icon_BCA.png', '0312609779', '2019-04-14 16:18:57', '2019-04-14 16:18:58'),
-(2, 'BNI', 'Iwan Safrudin', 'icon_BNI.png', '0813920638', '2019-04-14 16:19:55', '2019-04-14 16:19:55');
+INSERT INTO `bank_account` (`id`, `bank_name`, `person_name`, `icon`, `bank_number`, `created`) VALUES
+(1, 'BCA', 'Iwan Safrudin', 'icon_BCA.png', '0312609779', '2019-04-14 16:18:57'),
+(2, 'BNI', 'Iwan Safrudin', 'icon_BNI.png', '0813920638', '2019-04-14 16:19:55');
 
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE `comment` (
@@ -142,8 +144,8 @@ CREATE TABLE `content` (
   `publish` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `content` (`id`, `cat_ids`, `tag_ids`, `title`, `slug`, `description`, `keyword`, `intro`, `content`, `source`, `image`, `icon`, `image_link`, `images`, `document`, `author`, `hits`, `last_hits`, `rating`, `params`, `created`, `updated`, `publish`) VALUES
-(1, ',1,', ',1,2,', 'Hello World', 'hello-world', 'Hello World\r\n', 'Hello World', 'Hello World\r\n', '<p>Hello World</p>\r\n', '', 'image_Hello_World_1541950550.png', '', '', '[\"images_Hello_World_0_1541950550.png\",\"images_Hello_World_1_1541950550.png\"]', '', 'admin', 153, '0000-00-00 00:00:00', '', '', '2018-11-11 22:35:50', '2019-10-10 10:41:23', 1);
+INSERT INTO `content` (`id`, `cat_ids`, `tag_ids`, `title`, `slug`, `description`, `keyword`, `intro`, `content`, `source`, `image`, `icon`, `image_link`, `images`, `document`, `author`, `hits`, `last_hits`, `rating`, `params`, `created`, `publish`) VALUES
+(1, ',1,', ',1,2,', 'Hello World', 'hello-world', 'Hello World\r\n', 'Hello World', 'Hello World\r\n', '<p>Hello World</p>\r\n', '', 'image_Hello_World_1541950550.png', '', '', '[\"images_Hello_World_0_1541950550.png\",\"images_Hello_World_1_1541950550.png\"]', '', 'admin', 153, '0000-00-00 00:00:00', '', '', '2018-11-11 22:35:50', 1);
 
 DROP TABLE IF EXISTS `content_cat`;
 CREATE TABLE `content_cat` (
@@ -159,8 +161,8 @@ CREATE TABLE `content_cat` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `content_cat` (`id`, `par_id`, `title`, `slug`, `image`, `icon`, `description`, `publish`, `created`, `updated`) VALUES
-(1, 0, 'Uncategorized', 'uncategorized', '', '', '', 1, '2018-11-11 22:23:38', '2018-11-11 22:23:38');
+INSERT INTO `content_cat` (`id`, `par_id`, `title`, `slug`, `image`, `icon`, `description`, `publish`, `created`) VALUES
+(1, 0, 'Uncategorized', 'uncategorized', '', '', '', 1, '2018-11-11 22:23:38');
 
 DROP TABLE IF EXISTS `content_tag`;
 CREATE TABLE `content_tag` (
@@ -204,9 +206,9 @@ CREATE TABLE `menu_position` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `menu_position` (`id`, `title`, `created`, `updated`) VALUES
-(1, 'Top Menu', '2018-11-12 02:16:02', '2018-11-12 02:16:02'),
-(2, 'Bottom Menu', '2018-11-15 12:39:27', '2018-11-15 12:39:27');
+INSERT INTO `menu_position` (`id`, `title`, `created`) VALUES
+(1, 'Top Menu', '2018-11-12 02:16:02'),
+(2, 'Bottom Menu', '2018-11-15 12:39:27');
 
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
@@ -223,11 +225,14 @@ CREATE TABLE `message` (
 DROP TABLE IF EXISTS `product`;
 CREATE TABLE `product` (
   `id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
+  `suplier_id` int(11) NOT NULL,
   `cat_ids` text NOT NULL,
   `tag_ids` text NOT NULL,
   `image` varchar(11) NOT NULL,
   `images` text NOT NULL,
   `title` varchar(255) NOT NULL,
+  `code` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `price` varchar(255) NOT NULL,
@@ -238,18 +243,25 @@ CREATE TABLE `product` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `product` (`id`, `store_id`, `suplier_id`, `cat_ids`, `tag_ids`, `image`, `images`, `title`, `code`, `slug`, `description`, `price`, `discount`, `qty`, `publish`, `created`) VALUES
+(1, 1, 1, ',1,', '', '', '', 'sosis', 'so001', '', '', '100000', 0, 12, 1, '2019-11-26 14:12:39');
+
 DROP TABLE IF EXISTS `product_cat`;
 CREATE TABLE `product_cat` (
   `id` int(11) NOT NULL,
   `par_id` int(11) NOT NULL,
+  `store_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `description` mediumtext NOT NULL,
   `publish` tinyint(1) NOT NULL DEFAULT '1',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `product_cat` (`id`, `par_id`, `store_id`, `title`, `image`, `description`, `publish`, `created`) VALUES
+(1, 0, 1, 'sosis', '', '', 1, '2019-11-26 11:16:35'),
+(2, 0, 1, 'nugget', '', '', 1, '2019-11-26 13:50:37');
 
 DROP TABLE IF EXISTS `product_tag`;
 CREATE TABLE `product_tag` (
@@ -272,8 +284,8 @@ CREATE TABLE `store` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `store` (`id`, `user_id`, `title`, `description`, `address`, `phone`, `email`, `created`, `updated`) VALUES
-(1, 3, 'lestari', 'toko sepatu apa aja', 'tulakan donorojo jepara', '085290335332', 'iwansafr@gmail.com', '2019-11-25 12:35:35', '2019-11-25 12:35:35');
+INSERT INTO `store` (`id`, `user_id`, `title`, `description`, `address`, `phone`, `email`, `created`) VALUES
+(1, 3, 'lestari', 'toko sepatu apa aja', 'tulakan donorojo jepara', '085290335332', 'iwansafr@gmail.com', '2019-11-25 12:35:35');
 
 DROP TABLE IF EXISTS `store_staff`;
 CREATE TABLE `store_staff` (
@@ -288,8 +300,8 @@ CREATE TABLE `store_staff` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `store_staff` (`id`, `store_id`, `user_id`, `name`, `gender`, `address`, `phone`, `created`, `updated`) VALUES
-(1, 1, 4, 'bambang', 1, 'Tulakan Donorojo Jepara', '085290335332', '2019-11-25 22:25:39', '2019-11-25 22:25:39');
+INSERT INTO `store_staff` (`id`, `store_id`, `user_id`, `name`, `gender`, `address`, `phone`, `created`) VALUES
+(1, 1, 4, 'bambang', 1, 'Tulakan Donorojo Jepara', '085290335332', '2019-11-25 22:25:39');
 
 DROP TABLE IF EXISTS `subscriber`;
 CREATE TABLE `subscriber` (
@@ -299,8 +311,8 @@ CREATE TABLE `subscriber` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `subscriber` (`id`, `email`, `created`, `updated`) VALUES
-(1, 'iwansafr@gmail.com', '2019-04-22 06:39:07', '2019-04-22 06:39:07');
+INSERT INTO `subscriber` (`id`, `email`, `created`) VALUES
+(1, 'iwansafr@gmail.com', '2019-04-22 06:39:07');
 
 DROP TABLE IF EXISTS `suplier`;
 CREATE TABLE `suplier` (
@@ -328,8 +340,8 @@ CREATE TABLE `testimonial` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `testimonial` (`id`, `name`, `email`, `profession`, `testimonial`, `publish`, `created`, `updated`) VALUES
-(2, 'iwan', 'iwansafr@gmail.com', 'guru', 'keren websitenya', 0, '2019-08-27 11:53:56', '2019-08-27 11:53:56');
+INSERT INTO `testimonial` (`id`, `name`, `email`, `profession`, `testimonial`, `publish`, `created`) VALUES
+(2, 'iwan', 'iwansafr@gmail.com', 'guru', 'keren websitenya', 0, '2019-08-27 11:53:56');
 
 DROP TABLE IF EXISTS `trash`;
 CREATE TABLE `trash` (
@@ -354,10 +366,10 @@ CREATE TABLE `user` (
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `image`, `user_role_id`, `active`, `created`, `updated`) VALUES
-(1, 'root', '$2y$10$iN3I64zsXAyy9MCEVAPe3uqv1ygazlJgKFYEc2aNCiu2VDe/ZTKjO', 'root@esoftgreat.com', '', 1, 1, '2018-11-03 07:36:32', '2018-11-03 07:36:32'),
-(3, 'lestari', '$2y$10$Gxc7A3OSQLftCITehS1jXulMHp4QZRwOwgbSRTomyBWVRUSSi78je', 'iwansafr@gmail.com', '', 2, 1, '2019-11-25 12:35:35', '2019-11-25 12:35:35'),
-(4, 'bambang', '$2y$10$pJnq0DDGcDo8ExpBw79kr.RMr74MjxPfXj5LNUNAdpf1VfZxi7FHm', 'esoftgreat@gmail.com', '', 4, 1, '2019-11-25 22:25:39', '2019-11-25 22:25:39');
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `image`, `user_role_id`, `active`, `created`) VALUES
+(1, 'root', '$2y$10$iN3I64zsXAyy9MCEVAPe3uqv1ygazlJgKFYEc2aNCiu2VDe/ZTKjO', 'root@esoftgreat.com', '', 1, 1, '2018-11-03 07:36:32'),
+(3, 'lestari', '$2y$10$Gxc7A3OSQLftCITehS1jXulMHp4QZRwOwgbSRTomyBWVRUSSi78je', 'iwansafr@gmail.com', '', 2, 1, '2019-11-25 12:35:35'),
+(4, 'bambang', '$2y$10$pJnq0DDGcDo8ExpBw79kr.RMr74MjxPfXj5LNUNAdpf1VfZxi7FHm', 'esoftgreat@gmail.com', '', 4, 1, '2019-11-25 22:25:39');
 
 DROP TABLE IF EXISTS `user_login`;
 CREATE TABLE `user_login` (
@@ -381,7 +393,9 @@ INSERT INTO `user_login` (`id`, `user_id`, `ip`, `browser`, `status`, `created`)
 (9, 4, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', 1, '2019-11-25 22:25:52'),
 (10, 0, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36 OPR/65.0.3467.48', 0, '2019-11-25 22:26:15'),
 (11, 3, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36 OPR/65.0.3467.48', 1, '2019-11-25 22:26:24'),
-(12, 1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36 OPR/65.0.3467.48', 1, '2019-11-25 22:26:41');
+(12, 1, '::1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36 OPR/65.0.3467.48', 1, '2019-11-25 22:26:41'),
+(13, 1, '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', 1, '2019-11-26 07:40:34'),
+(14, 3, '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', 1, '2019-11-26 07:51:08');
 
 DROP TABLE IF EXISTS `user_login_failed`;
 CREATE TABLE `user_login_failed` (
@@ -405,11 +419,11 @@ CREATE TABLE `user_role` (
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `user_role` (`id`, `level`, `title`, `description`, `created`, `updated`) VALUES
-(1, 1, 'root', 'super user', '2018-11-02 22:57:22', '2018-11-02 22:57:22'),
-(2, 2, 'admin', 'the administrator', '2018-11-02 22:57:22', '2018-11-02 22:57:22'),
-(3, 5, 'Member', 'User member yang hanya berlangganan saja', '2018-11-04 12:59:26', '2018-11-04 12:59:26'),
-(4, 4, 'Staff', 'User for staff', '2019-11-25 06:29:23', '2019-11-25 06:29:23');
+INSERT INTO `user_role` (`id`, `level`, `title`, `description`, `created`) VALUES
+(1, 1, 'root', 'super user', '2018-11-02 22:57:22'),
+(2, 2, 'admin', 'the administrator', '2018-11-02 22:57:22'),
+(3, 5, 'Member', 'User member yang hanya berlangganan saja', '2018-11-04 12:59:26'),
+(4, 4, 'Staff', 'User for staff', '2019-11-25 06:29:23');
 
 DROP TABLE IF EXISTS `visitor`;
 CREATE TABLE `visitor` (
@@ -435,7 +449,16 @@ INSERT INTO `visitor` (`id`, `ip`, `visited`, `city`, `region`, `country`, `brow
 (9, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-11-25 11:27:39'),
 (10, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-11-25 11:29:42'),
 (11, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-11-25 11:30:33'),
-(12, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-11-25 12:45:50');
+(12, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36', '2019-11-25 12:45:50'),
+(13, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', '2019-11-26 07:48:48'),
+(14, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', '2019-11-26 07:49:04'),
+(15, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', '2019-11-26 07:49:19'),
+(16, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', '2019-11-26 09:09:07'),
+(17, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', '2019-11-26 09:10:27'),
+(18, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', '2019-11-26 14:11:38'),
+(19, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', '2019-11-26 14:11:52'),
+(20, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', '2019-11-26 14:18:25'),
+(21, '::1', 'http://localhost/toko/templates/AdminLTE/assets/summernote/summernote.js.map', '', '', '', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Safari/605.1.15', '2019-11-26 14:18:38');
 
 
 ALTER TABLE `admin_menu`
@@ -519,57 +542,83 @@ ALTER TABLE `visitor`
 
 ALTER TABLE `admin_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
 ALTER TABLE `bank_account`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 ALTER TABLE `comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 ALTER TABLE `config`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 ALTER TABLE `content`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 ALTER TABLE `content_cat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 ALTER TABLE `content_tag`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 ALTER TABLE `invoice`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 ALTER TABLE `menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 ALTER TABLE `menu_position`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 ALTER TABLE `message`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 ALTER TABLE `product_cat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 ALTER TABLE `product_tag`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 ALTER TABLE `store`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 ALTER TABLE `store_staff`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 ALTER TABLE `subscriber`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 ALTER TABLE `suplier`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 ALTER TABLE `testimonial`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 ALTER TABLE `trash`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 ALTER TABLE `user_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 ALTER TABLE `user_login_failed`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 ALTER TABLE `visitor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 
 ALTER TABLE `trash`
   ADD CONSTRAINT `trash_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
