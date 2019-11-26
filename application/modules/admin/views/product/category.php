@@ -1,5 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+$store_id = @intval($this->session->userdata(base_url().'_store')['id']);
+
 $form = new zea();
 $form->setTable('product_cat');
 $form->init('edit');
@@ -8,12 +10,18 @@ $form->addInput('par_id','dropdown');
 $form->setLabel('par_id','Parent');
 $form->tableOptions('par_id','product_cat','id','title');
 
+if(!empty($store_id))
+{
+	$form->addInput('store_id','static');
+	$form->setValue('store_id',$store_id);
+}
+
 $form->setHeading('category');
 $form->addInput('title','text');
 
-$form->addInput('image','file');
+// $form->addInput('image','file');
 $form->addInput('description','textarea');
-$form->addInput('publish','checkbox');
+// $form->addInput('publish','checkbox');
 $form->setFormName('form_edit_cat');
 
 
@@ -22,8 +30,12 @@ $form2->setTable('product_cat');
 $form2->init('roll');
 
 $form2->search();
+if(!empty($store_id))
+{
+	$form2->setWhere('store_id = '.$store_id);
+}
 $form2->setNumbering(true);
-$form2->addInput('id','plaintext');
+$form2->addInput('id','hidden');
 $form2->addInput('par_id','dropdown');
 $form2->setLabel('par_id','Parent');
 $form2->tableOptions('par_id','product_cat','id','title');
@@ -35,7 +47,7 @@ $form2->setDelete(true);
 $form2->setHeading('category');
 $form2->addInput('title','plaintext');
 
-$form2->addInput('publish','checkbox');
+// $form2->addInput('publish','checkbox');
 $form2->setFormName('form_roll_cat');
 
 ?>

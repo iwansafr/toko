@@ -7,7 +7,8 @@ $form->init('edit');
 $form->setId($id);
 if(!is_root())
 {
-	$form->setId($this->store_model->get_store_id());
+	$store_id = @intval($this->session->userdata(base_url().'_store')['id']);
+	$form->setId($store_id);
 }
 
 $form->addInput('title','text');

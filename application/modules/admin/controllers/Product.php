@@ -8,10 +8,19 @@ class Product extends CI_Controller
 		$this->load->model('esg_model');
 		$this->load->model('admin_model');
 		$this->load->model('admin_menu_model');
-		$this->load->model('store_model');
 		$this->load->library('esg');
 		$this->load->library('ZEA/zea');
 		$this->esg_model->init();
+	}
+
+	public function index()
+	{
+		$this->load->view('index');
+	}
+
+	public function clear_list()
+	{
+		$this->load->view('product/list');
 	}
 
 	public function category()

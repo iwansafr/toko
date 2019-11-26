@@ -14,7 +14,7 @@ if(is_root())
 	$form->tableOptions('store_id','store','id','title');
 }else if(is_admin())
 {
-	$store_id = $this->store_model->get_store_id();
+	$store_id = @intval($this->session->userdata(base_url().'_store')['id']);
 	$form->addInput('store_id','static');
 	$form->setValue('store_id',$store_id);
 }

@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-$store_id = $this->store_model->get_store_id();
+$store_id = @intval($this->session->userdata(base_url().'_store')['id']);
 
 $form = new zea();
 
