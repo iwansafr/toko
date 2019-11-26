@@ -58,4 +58,6 @@ $form->setCollapse('price',TRUE);
 
 $form->addInput('publish','checkbox');
 
+$form->setRequired(['cat_ids','title','price','code','qty']);
+
 $form->form();

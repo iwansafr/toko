@@ -36,6 +36,7 @@ $form->addInput('publish','checkbox');
 
 $form->setEdit(true);
 $form->setDelete(true);
+$form->setEditLink(base_url('admin/product/edit?id='),'id');
 $form->setUrl('admin/product/clear_list');
 
 $form->form();
