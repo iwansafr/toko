@@ -18,9 +18,14 @@ class Product extends CI_Controller
 		$this->load->view('index');
 	}
 
+	public function edit()
+	{
+		$this->load->view('index');
+	}
+
 	public function clear_list()
 	{
-		$this->load->view('product/list');
+		$this->load->view('product/index');
 	}
 
 	public function category()
