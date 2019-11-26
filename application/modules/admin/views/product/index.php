@@ -1,7 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 $store_id = @intval($this->session->userdata(base_url().'_store')['id']);
-
 $form = new zea();
 
 $form->setHeading(button('<i class="fa fa-plus"></i> product',base_url('admin/product/edit'),'warning'));
