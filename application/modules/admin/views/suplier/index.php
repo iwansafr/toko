@@ -7,9 +7,18 @@ $form = new zea();
 $form->init('edit');
 $form->setTable('suplier');
 
+$form->setHeading(button('<i class="fa fa-plus"></i>',base_url('admin/suplier/'),'warning'));
 $form->setId(@intval($_GET['id']));
-$form->addInput('store_id','static');
-$form->setValue('store_id', $store_id);
+$is_root = is_root();
+if($is_root)
+{
+	$form->addInput('store_id','dropdown');
+	$form->setLabel('store_id','store');
+	$form->tableOptions('store_id','store','id','title');
+}else{
+	$form->addInput('store_id','static');
+	$form->setValue('store_id', $store_id);
+}
 $form->addInput('name','text');
 $form->addInput('address','textarea');
 $form->addInput('phone','text');
@@ -21,10 +30,20 @@ $form2 = new zea();
 $form2->init('roll');
 $form2->setTable('suplier');
 
-$form2->setWhere('store_id = '.$store_id);
+if(!empty($store_id))
+{
+	$form2->setWhere('store_id = '.$store_id);
+}
 $form2->search();
 $form2->setNumbering(true);
 $form2->addinput('id','hidden');
+if($is_root)
+{
+	$form2->addInput('store_id','dropdown');
+	$form2->tableOptions('store_id','store','id','title');
+	$form2->setLabel('store_id','store');
+	$form2->setAttribute('store_id','disabled');
+}
 $form2->addInput('name','plaintext');
 $form2->addInput('phone','plaintext');
 $form2->setDelete(true);
